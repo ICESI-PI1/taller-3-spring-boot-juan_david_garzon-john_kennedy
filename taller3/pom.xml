@@ -48,6 +48,11 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.5.3.Final</version> <!-- Asegúrate de usar la versión adecuada -->
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>3.1.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>

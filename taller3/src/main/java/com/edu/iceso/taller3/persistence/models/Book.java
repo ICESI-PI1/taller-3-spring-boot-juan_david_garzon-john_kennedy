@@ -7,14 +7,14 @@ import java.util.Date;
 
 @Data
 @Entity
-public class Libro {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String titulo;
-    private Date fechaPublicacion;
+    private String title;
+    private Date publicationDate;
     @ManyToOne
-    private Autor autor;
+    private Author author;
 
 }
 
