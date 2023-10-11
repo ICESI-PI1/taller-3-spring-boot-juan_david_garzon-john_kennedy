@@ -17,6 +17,10 @@ public class BookServiceImpl implements IBookService {
     @Autowired
     private BookRepository bookRepository;
 
+    public BookServiceImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
     @Override
     public List<Book> getAllBooks() {
         return bookRepository.findAll();

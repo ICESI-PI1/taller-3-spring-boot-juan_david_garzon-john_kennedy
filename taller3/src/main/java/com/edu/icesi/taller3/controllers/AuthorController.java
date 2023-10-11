@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edu.icesi.taller3.persistence.models.Author;
@@ -17,6 +18,7 @@ import com.edu.icesi.taller3.services.IAuthorService;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/autores")
 public class AuthorController {
     @Autowired
     private IAuthorService authorService;
@@ -30,10 +32,11 @@ public class AuthorController {
     @GetMapping("/{id}")
     public Optional<Author> getAuthorById(@PathVariable Long id) {
         System.out.println(id);
-        return null;
+        Optional<Author> a= authorService.getAuthorById(id);
+        return a;
     }
 
-    @PostMapping("/autores")
+    @PostMapping
     public Author createAuthor(@RequestBody Author author) {
         System.out.println("Creating author");
         return authorService.createAuthor(author);

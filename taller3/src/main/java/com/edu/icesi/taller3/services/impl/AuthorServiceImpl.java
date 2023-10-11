@@ -14,6 +14,10 @@ public class AuthorServiceImpl implements IAuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
+    public AuthorServiceImpl(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
+
     @Override
     public Iterable<Author> getAllAuthors() {
         return authorRepository.findAll();
