@@ -1,14 +1,15 @@
-package com.edu.iceso.taller3.services;
+package com.edu.icesi.taller3.services;
 
 
-import com.edu.iceso.taller3.persistence.models.Author;
-
-import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
+import com.edu.icesi.taller3.persistence.models.Author;
+@Service
 public interface IAuthorService {
 
-    List<Author> getAllAuthors();
+    Iterable<Author> getAllAuthors();
 
     Optional<Author> getAuthorById(Long id);
 

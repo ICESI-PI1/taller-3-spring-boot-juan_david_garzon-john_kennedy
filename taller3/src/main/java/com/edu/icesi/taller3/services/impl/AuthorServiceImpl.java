@@ -1,26 +1,21 @@
-package com.edu.iceso.taller3.services.impl;
+package com.edu.icesi.taller3.services.impl;
 
-import com.edu.iceso.taller3.persistence.models.Author;
-import com.edu.iceso.taller3.persistence.repositories.AuthorRepository;
-import com.edu.iceso.taller3.services.IAuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.edu.icesi.taller3.persistence.models.Author;
+import com.edu.icesi.taller3.persistence.repositories.AuthorRepository;
+import com.edu.icesi.taller3.services.IAuthorService;
+
 import java.util.Optional;
 
 @Service
 public class AuthorServiceImpl implements IAuthorService {
-
-    private final AuthorRepository authorRepository;
-
     @Autowired
-    public AuthorServiceImpl(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
-    }
+    private AuthorRepository authorRepository;
 
     @Override
-    public List<Author> getAllAuthors() {
+    public Iterable<Author> getAllAuthors() {
         return authorRepository.findAll();
     }
 

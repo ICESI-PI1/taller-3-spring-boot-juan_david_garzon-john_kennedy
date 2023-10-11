@@ -1,11 +1,13 @@
-package com.edu.iceso.taller3.services;
-
-
-import com.edu.iceso.taller3.persistence.models.Book;
+package com.edu.icesi.taller3.services;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
+import com.edu.icesi.taller3.persistence.models.Author;
+import com.edu.icesi.taller3.persistence.models.Book;
+@Service
 public interface IBookService {
 
     List<Book> getAllBooks();
@@ -17,4 +19,6 @@ public interface IBookService {
     Optional<Book> updateBook(Long id, Book updatedBook);
 
     boolean deleteBook(Long id);
+
+    List<Book> findByAuthor(Author author);
 }

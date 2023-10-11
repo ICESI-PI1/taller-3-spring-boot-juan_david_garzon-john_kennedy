@@ -1,24 +1,21 @@
-package com.edu.iceso.taller3.services.impl;
+package com.edu.icesi.taller3.services.impl;
 
 
-import com.edu.iceso.taller3.persistence.models.Book;
-import com.edu.iceso.taller3.persistence.repositories.BookRepository;
-import com.edu.iceso.taller3.services.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.edu.icesi.taller3.persistence.models.Author;
+import com.edu.icesi.taller3.persistence.models.Book;
+import com.edu.icesi.taller3.persistence.repositories.BookRepository;
+import com.edu.icesi.taller3.services.IBookService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements IBookService {
-
-    private final BookRepository bookRepository;
-
     @Autowired
-    public BookServiceImpl(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
+    private BookRepository bookRepository;
 
     @Override
     public List<Book> getAllBooks() {
@@ -53,6 +50,11 @@ public class BookServiceImpl implements IBookService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Book> findByAuthor(Author author) {
+        return bookRepository.findByAuthor(author);
     }
 }
 

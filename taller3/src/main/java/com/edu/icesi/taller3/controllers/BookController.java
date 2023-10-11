@@ -1,10 +1,11 @@
-package com.edu.iceso.taller3.controllers;
+package com.edu.icesi.taller3.controllers;
 
 
-import com.edu.iceso.taller3.persistence.models.Book;
-import com.edu.iceso.taller3.services.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.edu.icesi.taller3.persistence.models.Book;
+import com.edu.icesi.taller3.services.IBookService;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,13 +13,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/libros")
 public class BookController {
-
-    private final IBookService bookService;
-
     @Autowired
-    public BookController(IBookService bookService) {
-        this.bookService = bookService;
-    }
+    private IBookService bookService;
 
     @GetMapping
     public List<Book> getAllLBooks() {
