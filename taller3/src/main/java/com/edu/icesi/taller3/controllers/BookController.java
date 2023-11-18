@@ -4,6 +4,7 @@ package com.edu.icesi.taller3.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.edu.icesi.taller3.persistence.models.Author;
 import com.edu.icesi.taller3.persistence.models.Book;
 import com.edu.icesi.taller3.services.IBookService;
 
@@ -15,6 +16,8 @@ import java.util.Optional;
 public class BookController {
     @Autowired
     private IBookService bookService;
+    @Autowired
+    private AuthorController authorController;
 
     @GetMapping
     public List<Book> getAllLBooks() {
@@ -40,5 +43,6 @@ public class BookController {
     public boolean deleteBook(@PathVariable Long id) {
         return bookService.deleteBook(id);
     }
+
 }
 
